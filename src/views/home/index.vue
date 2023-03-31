@@ -1,12 +1,17 @@
 <template>
-  <div class="">
+  <div class="container">
     home
   </div>
 </template>
 <script>
 export default {
-  name: 'index',
+  name: 'HomePage',
 
 }
 </script>
-<style scoped></style>
+<style scoped lang="less">
+.container {
+  // less混入
+  .hoverShadow()
+}
+</style>
