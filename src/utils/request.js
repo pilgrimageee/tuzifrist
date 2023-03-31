@@ -22,7 +22,7 @@ instance.interceptors.request.use(
     const profile = store.state.user.profile;
     // 判断用户信息对象中的token
     if (profile.token) {
-      config.headers.Authorization = `Breaer${profile.token}`;
+      config.headers.Authorization = `Breaer ${profile.token}`;
     }
     return config;
   },

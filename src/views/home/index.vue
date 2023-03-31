@@ -1,9 +1,11 @@
 <template>
-  <RouterView></RouterView>
+  <div class="">
+    home
+  </div>
 </template>
 <script>
 export default {
-  name: 'App',
+  name: 'index',
 
 }
 </script>
