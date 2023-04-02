@@ -34,10 +34,10 @@ instance.interceptors.request.use(
 // 响应拦截器
 instance.interceptors.response.use(
   // 发起请求接口返回数据时去掉一层date  剥离无效数据
-  (res) => res.date,
+  (res) => res.data,
   (error) => {
     // 当请求报错时进入这个函数 , 401状态码时
-    if (error.response && error.response.state === 401) {
+    if (error.response && error.response.status === 401) {
       // 1. 清空用户无效信息(,{传一个空对象}) 2. 跳转到登录页 3. 跳转需要传参(当前路由地址)到登录页
       store.commit("user/setUser", {});
       // 组件中$route.path获取不带参数 $route.fullPath获取完整路径
