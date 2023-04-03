@@ -60,6 +60,6 @@ export default (url, method, submitDate) => {
     method,
     // []设置一个动态的key , 可以写js表达式 , js表达式的执行结果当作key toLowerCase()转换为小写
     // ['params']:submitData ===== params:submitData 这样理解
-    [method.toLowerCase() === "get" ? "parmars" : "data"]: submitDate,
+    [method.toLowerCase() === "get" ? "params" : "data"]: submitDate,
   });
 };
