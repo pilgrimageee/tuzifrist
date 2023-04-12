@@ -1,3 +1,4 @@
+<!-- 首页布局容器 -->
 <template>
   <!-- 顶部通栏 -->
   <AppTopnav />
@@ -9,6 +10,7 @@
   <div class="app-body">
     <!-- 二级路由 -->
     <RouterView />
+
   </div>
   <!-- 底部组件 -->
   <footer>
@@ -35,6 +37,6 @@ export default {
 <style scoped lang="less">
 .app-body {
   // 给内容撑开一个高度
-  min-height: 600px;
+  // min-height: 600px;
 }
 </style>

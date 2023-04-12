@@ -1,3 +1,4 @@
+<!-- 左侧分类组件 -->
 <template>
   <!-- 鼠标离开把当前id清空 , 高亮取消 -->
   <div class='home-category' @mouseleave="categoryId = null">
@@ -10,6 +11,10 @@
         <template v-if="item.children">
           <RouterLink v-for="sub in item.children" :key="sub.id" :to="`/category/sub/${sub.id}`">{{ sub.name }}
           </RouterLink>
+        </template>
+        <template v-else>
+          <XtxSkeleton width="60px" height="18px" style="margin-right:5px" bg="rgba(255,255,255,0.2)" />
+          <XtxSkeleton width="50px" height="18px" bg="rgba(255,255,255,0.2)" />
         </template>
       </li>
     </ul>
@@ -49,7 +54,7 @@
 </template>
 
 <script>
-import { computed, reactive, ref, watch } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 import { findBrand } from '@/api/home'
 
@@ -80,8 +85,12 @@ const useClassifyLeft = (store) => {
     return list
   })
   // 获取品牌数据图片
-  findBrand().then((data) => {
-    brand.brands = data.result
+  // findBrand().then((data) => {
+  //   brand.brands = data.result
+  // })
+  onMounted(async () => {
+    const { result } = await findBrand(6)
+    brand.brands = result
   })
 
   return menuList
@@ -252,6 +261,21 @@ export default {
     .layer {
       display: block;
     }
+  }
+}
+
+// 骨架动画
+.xtx-skeleton {
+  animation: fade 1s linear infinite alternate;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 </style>
