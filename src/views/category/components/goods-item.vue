@@ -1,5 +1,6 @@
+<!-- 一级路由里面全部分类组件小图 -->
 <template>
-  <RouterLink to="/" class='goods-item'>
+  <RouterLink to="" class='goods-item'>
     <img :src="goods.picture" alt="">
     <p class="name ellipsis">{{ goods.name }}</p>
     <p class="desc ellipsis">{{ goods.desc }}</p>

@@ -8,6 +8,7 @@
         <Transition name="fade">
           <ul class="goods-list" v-if="goods.length">
             <li v-for="item in goods" :key="item.id">
+              <!-- <RouterLink :to="`/product/${item.id}`"> -->
               <RouterLink to="/">
                 <img :src="item.picture" alt="">
                 <p class="name">{{ item.title }}</p>

@@ -5,7 +5,8 @@
     <li class="home">
       <RouterLink to="/">首页</RouterLink>
     </li>
-    <li v-for="item in list" :key="item.id" @mouseenter="show(item)" @mouseleave="hide(item)">
+    <!-- 滚动到顶部，鼠标有时候会进入一级类目上，触发弹出二级类目。改成在一级类目上移动弹出二级类目@mousemove -->
+    <li v-for="item in list" :key="item.id" @mousemove="show(item)" @mouseleave="hide(item)">
       <!-- 路由跳转 要传id参数-->
       <RouterLink @click="hide(item)" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
       <div class="layer" :class="{ open: item.open }">

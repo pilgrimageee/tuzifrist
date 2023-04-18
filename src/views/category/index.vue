@@ -5,8 +5,11 @@
       <!-- 面包屑 -->
       <XtxBread>
         <XtxBreadItem to="/">首页</XtxBreadItem>
-        <!--  v-if="topCategory" 计算属性里写有判断非空 -->
-        <XtxBreadItem>{{ topCategory.name }}</XtxBreadItem>
+        <Transition name="fade-right" mode="out-in">
+          <!--  v-if="topCategory" 计算属性里写有判断非空 -->
+          <!-- 不同的key可以创建移除元素，创造触发动画条件 -->
+          <XtxBreadItem :key="topCategory.id">{{ topCategory.name }}</XtxBreadItem>
+        </Transition>
       </XtxBread>
       <!-- 轮播图 -->
       <XtxCarousel :sliders='sliders' style="height:500px" />
@@ -70,7 +73,6 @@ export default {
     })
 
     // 获取各个子类目下的推荐商品
-
     const subList = ref([])
     // 渲染数据方法
     const getSubList = () => {
@@ -82,10 +84,13 @@ export default {
       //   subList.value = result.children
       // })
     }
-    // 同级路由切换不刷新 监听路由切换后的id
+    // 动态路由当id发生变化时不会重新渲染组件 监听路由切换后的id调用渲染
+    // 切换二级类目路由时也会有id会触发watch , 导致watch发送了请求
     watch(() => route.params.id, (newVal) => {
-      newVal && getSubList()
-      // 初始化时候调用一次监听
+      // newVal && getSubList()
+      // 判断动态路由id改变并且与category拼接的路径===当前路径watch才会发起请求
+      if (newVal && `/category/${newVal}` === route.path) getSubList()
+      // watch初始化时候主动触发一次
     }, { immediate: true })
 
     return { sliders, topCategory, subList }

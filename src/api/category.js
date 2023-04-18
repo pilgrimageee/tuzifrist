@@ -14,3 +14,17 @@ export const findAllCategory = () => {
 export const findTopCategory = (id) => {
   return request("/category", "get", { id });
 };
+
+/**
+ * 二级分类筛选
+ */
+export const findSubCategoryFilter = (id) => {
+  return request("/category/sub/filter", "get", { id });
+};
+
+/**
+ *获取分类下的商品 传参是对象Object
+ */
+export const findSubCategoryGoods = (params) => {
+  return request("/category/goods/temporary", "post", params);
+};

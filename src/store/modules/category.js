@@ -41,7 +41,7 @@ export default {
         item.open = false;
       });
       // 修改数据
-      console.log("打印获取到的分类", result);
+      // console.log("打印获取到的分类", result);
       commit("setList", result);
     },
   },

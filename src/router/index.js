@@ -25,6 +25,11 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  // vuerouter路由滚动行为
+  // vue2是通过x y  vue3是通过left top
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default router;
