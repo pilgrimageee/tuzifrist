@@ -18,6 +18,8 @@ const routes = [
       { path: "/category/:id", component: TopCategory },
       // 二级分类 2级
       { path: "/category/sub/:id", component: SubCategory },
+      // 商品详情
+      { path: "/product/:id", component: () => import("@/views/goods") },
     ],
   },
 ];

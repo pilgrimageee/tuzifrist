@@ -12,8 +12,8 @@
         <Transition name="fade">
           <ul class="goods-list" v-if="goods.length">
             <li v-for="item in goods" :key="item.id">
-              <!-- <RouterLink :to="`/product/${item.id}`"> -->
-              <RouterLink to="/">
+              <!-- 路由跳转商品详情 -->
+              <RouterLink :to="`/product/${item.id}`">
                 <img :src="item.picture" alt="">
                 <p class="name ellipsis">{{ item.name }}</p>
                 <p class="price">&yen;{{ item.price }}</p>

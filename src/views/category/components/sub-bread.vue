@@ -4,7 +4,8 @@
     <XtxBreadItem to="/">首页</XtxBreadItem>
     <XtxBreadItem v-if="category.top" :to="`/category/${category.top.id}`">{{ category.top.name }}</XtxBreadItem>
     <Transition name="fade-right" mode="out-in">
-      <XtxBreadItem v-if="category.sub" :key="category.sub.id" :to="`/category/${category.sub.id}`">{{ category.sub.name
+      <!-- :to="`/category/${category.sub.id}`"   当前页面的面包屑不用路由跳转 -->
+      <XtxBreadItem v-if="category.sub" :key="category.sub.id">{{ category.sub.name
       }}</XtxBreadItem>
     </Transition>
   </XtxBread>

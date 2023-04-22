@@ -17,4 +17,13 @@ module.exports = defineConfig({
       ]
     }
   }
+  // 城市组件小于10kb图片转换base64一直报错
+  // chainWebpack: (config) => {
+  //   // 图片加载
+  //   config.module
+  //     .rule("images")
+  //     .use("url-loader")
+  //     .loader("url-loader")
+  //     .tap((options) => Object.assign(options, { limit: 10000 }));
+  // },
 })
